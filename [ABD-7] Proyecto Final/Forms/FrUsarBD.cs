@@ -35,8 +35,16 @@ namespace _ABD_7__Proyecto_Final.Forms
 
         private void btnUsar_Click(object sender, EventArgs e)
         {
-            LocalBDUsada = cboxBD.Text;
-            this.Close();
+            if (cboxBD.Text!="")
+            {
+                LocalBDUsada = cboxBD.Text;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Favor de seleccionar una Base de Datos");
+            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

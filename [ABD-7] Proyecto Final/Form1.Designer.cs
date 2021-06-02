@@ -29,31 +29,47 @@
         private void InitializeComponent()
         {
             this.panelIzq = new System.Windows.Forms.Panel();
+            this.txtComandos = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.panelCentral = new System.Windows.Forms.Panel();
-            this.panelAbajo = new System.Windows.Forms.Panel();
-            this.btnUsar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnInsertar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
-            this.txtComandos = new System.Windows.Forms.TextBox();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnInsertar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnUsar = new System.Windows.Forms.Button();
+            this.panelAbajo = new System.Windows.Forms.Panel();
+            this.pboxRefrescar = new System.Windows.Forms.PictureBox();
             this.panelIzq.SuspendLayout();
             this.panelCentral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRefrescar)).BeginInit();
             this.SuspendLayout();
             // 
             // panelIzq
             // 
+            this.panelIzq.Controls.Add(this.pboxRefrescar);
             this.panelIzq.Controls.Add(this.txtComandos);
             this.panelIzq.Controls.Add(this.treeView1);
             this.panelIzq.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelIzq.Location = new System.Drawing.Point(0, 0);
             this.panelIzq.Name = "panelIzq";
-            this.panelIzq.Size = new System.Drawing.Size(200, 450);
+            this.panelIzq.Size = new System.Drawing.Size(232, 450);
             this.panelIzq.TabIndex = 0;
+            // 
+            // txtComandos
+            // 
+            this.txtComandos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtComandos.Location = new System.Drawing.Point(13, 340);
+            this.txtComandos.Multiline = true;
+            this.txtComandos.Name = "txtComandos";
+            this.txtComandos.ReadOnly = true;
+            this.txtComandos.Size = new System.Drawing.Size(181, 98);
+            this.txtComandos.TabIndex = 1;
             // 
             // treeView1
             // 
+            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView1.Location = new System.Drawing.Point(12, 13);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(182, 320);
@@ -67,32 +83,42 @@
             this.panelCentral.Controls.Add(this.btnEliminar);
             this.panelCentral.Controls.Add(this.btnUsar);
             this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCentral.Location = new System.Drawing.Point(200, 0);
+            this.panelCentral.Location = new System.Drawing.Point(232, 0);
             this.panelCentral.Name = "panelCentral";
-            this.panelCentral.Size = new System.Drawing.Size(600, 450);
+            this.panelCentral.Size = new System.Drawing.Size(568, 450);
             this.panelCentral.TabIndex = 1;
             // 
-            // panelAbajo
+            // btnCrear
             // 
-            this.panelAbajo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelAbajo.Location = new System.Drawing.Point(200, 296);
-            this.panelAbajo.Name = "panelAbajo";
-            this.panelAbajo.Size = new System.Drawing.Size(600, 154);
-            this.panelAbajo.TabIndex = 2;
+            this.btnCrear.Location = new System.Drawing.Point(221, 87);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.Size = new System.Drawing.Size(103, 37);
+            this.btnCrear.TabIndex = 5;
+            this.btnCrear.Text = "CREAR";
+            this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
-            // btnUsar
+            // btnModificar
             // 
-            this.btnUsar.Location = new System.Drawing.Point(38, 12);
-            this.btnUsar.Name = "btnUsar";
-            this.btnUsar.Size = new System.Drawing.Size(103, 38);
-            this.btnUsar.TabIndex = 0;
-            this.btnUsar.Text = "USAR";
-            this.btnUsar.UseVisualStyleBackColor = true;
-            this.btnUsar.Click += new System.EventHandler(this.btnUsar_Click);
+            this.btnModificar.Location = new System.Drawing.Point(221, 151);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(103, 38);
+            this.btnModificar.TabIndex = 4;
+            this.btnModificar.Text = "MODIFICAR";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnInsertar
+            // 
+            this.btnInsertar.Location = new System.Drawing.Point(221, 212);
+            this.btnInsertar.Name = "btnInsertar";
+            this.btnInsertar.Size = new System.Drawing.Size(103, 38);
+            this.btnInsertar.TabIndex = 3;
+            this.btnInsertar.Text = "INSERTAR";
+            this.btnInsertar.UseVisualStyleBackColor = true;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(38, 56);
+            this.btnEliminar.Location = new System.Drawing.Point(221, 280);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(103, 38);
             this.btnEliminar.TabIndex = 2;
@@ -100,41 +126,34 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnInsertar
+            // btnUsar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(187, 56);
-            this.btnInsertar.Name = "btnInsertar";
-            this.btnInsertar.Size = new System.Drawing.Size(103, 38);
-            this.btnInsertar.TabIndex = 3;
-            this.btnInsertar.Text = "INSERTAR";
-            this.btnInsertar.UseVisualStyleBackColor = true;
+            this.btnUsar.Location = new System.Drawing.Point(221, 27);
+            this.btnUsar.Name = "btnUsar";
+            this.btnUsar.Size = new System.Drawing.Size(103, 38);
+            this.btnUsar.TabIndex = 0;
+            this.btnUsar.Text = "USAR";
+            this.btnUsar.UseVisualStyleBackColor = true;
+            this.btnUsar.Click += new System.EventHandler(this.btnUsar_Click);
             // 
-            // btnModificar
+            // panelAbajo
             // 
-            this.btnModificar.Location = new System.Drawing.Point(187, 13);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(103, 38);
-            this.btnModificar.TabIndex = 4;
-            this.btnModificar.Text = "MODIFICAR";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.panelAbajo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelAbajo.Location = new System.Drawing.Point(232, 340);
+            this.panelAbajo.Name = "panelAbajo";
+            this.panelAbajo.Size = new System.Drawing.Size(568, 110);
+            this.panelAbajo.TabIndex = 2;
             // 
-            // btnCrear
+            // pboxRefrescar
             // 
-            this.btnCrear.Location = new System.Drawing.Point(334, 14);
-            this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(103, 37);
-            this.btnCrear.TabIndex = 5;
-            this.btnCrear.Text = "CREAR";
-            this.btnCrear.UseVisualStyleBackColor = true;
-            // 
-            // txtComandos
-            // 
-            this.txtComandos.Location = new System.Drawing.Point(13, 340);
-            this.txtComandos.Multiline = true;
-            this.txtComandos.Name = "txtComandos";
-            this.txtComandos.ReadOnly = true;
-            this.txtComandos.Size = new System.Drawing.Size(181, 98);
-            this.txtComandos.TabIndex = 1;
+            this.pboxRefrescar.Image = global::_ABD_7__Proyecto_Final.Properties.Resources.Recargar;
+            this.pboxRefrescar.Location = new System.Drawing.Point(200, 14);
+            this.pboxRefrescar.Name = "pboxRefrescar";
+            this.pboxRefrescar.Size = new System.Drawing.Size(26, 27);
+            this.pboxRefrescar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxRefrescar.TabIndex = 3;
+            this.pboxRefrescar.TabStop = false;
+            this.pboxRefrescar.Click += new System.EventHandler(this.pboxRefrescar_Click);
             // 
             // Form1
             // 
@@ -145,11 +164,12 @@
             this.Controls.Add(this.panelCentral);
             this.Controls.Add(this.panelIzq);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "ABD-7";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelIzq.ResumeLayout(false);
             this.panelIzq.PerformLayout();
             this.panelCentral.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRefrescar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,6 +186,7 @@
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnUsar;
+        private System.Windows.Forms.PictureBox pboxRefrescar;
     }
 }
 

@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrCrear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrCrear.Designer.cs">
+      <DependentUpon>FrCrear.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrEliminar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,16 +71,28 @@
     <Compile Include="Forms\FrUsarBD.Designer.cs">
       <DependentUpon>FrUsarBD.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrPantallaCarga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrPantallaCarga.Designer.cs">
+      <DependentUpon>FrPantallaCarga.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrCrear.resx">
+      <DependentUpon>FrCrear.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrEliminar.resx">
       <DependentUpon>FrEliminar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrUsarBD.resx">
       <DependentUpon>FrUsarBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrPantallaCarga.resx">
+      <DependentUpon>FrPantallaCarga.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -84,6 +102,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -97,6 +116,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DBNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DBNormal-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Recargar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

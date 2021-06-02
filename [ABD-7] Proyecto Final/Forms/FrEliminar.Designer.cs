@@ -28,118 +28,126 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelIzquierdo = new System.Windows.Forms.Panel();
             this.cboxTablas = new System.Windows.Forms.ComboBox();
-            this.btnTabla = new System.Windows.Forms.Button();
-            this.btnRegistros = new System.Windows.Forms.Button();
-            this.panelDerecho = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnMostrar = new System.Windows.Forms.Button();
-            this.panelIzquierdo.SuspendLayout();
-            this.panelDerecho.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.lblEliminar = new System.Windows.Forms.Label();
+            this.cboxObjeto = new System.Windows.Forms.ComboBox();
+            this.lblLlamada = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.dgvEliminar = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEliminar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panelIzquierdo
-            // 
-            this.panelIzquierdo.Controls.Add(this.btnMostrar);
-            this.panelIzquierdo.Controls.Add(this.cboxTablas);
-            this.panelIzquierdo.Controls.Add(this.btnTabla);
-            this.panelIzquierdo.Controls.Add(this.btnRegistros);
-            this.panelIzquierdo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelIzquierdo.Location = new System.Drawing.Point(0, 0);
-            this.panelIzquierdo.Name = "panelIzquierdo";
-            this.panelIzquierdo.Size = new System.Drawing.Size(383, 302);
-            this.panelIzquierdo.TabIndex = 0;
             // 
             // cboxTablas
             // 
             this.cboxTablas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxTablas.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxTablas.FormattingEnabled = true;
-            this.cboxTablas.Location = new System.Drawing.Point(212, 46);
+            this.cboxTablas.Location = new System.Drawing.Point(419, 32);
             this.cboxTablas.Name = "cboxTablas";
-            this.cboxTablas.Size = new System.Drawing.Size(139, 21);
+            this.cboxTablas.Size = new System.Drawing.Size(156, 30);
             this.cboxTablas.TabIndex = 2;
+            this.cboxTablas.Visible = false;
             this.cboxTablas.SelectionChangeCommitted += new System.EventHandler(this.cboxTablas_SelectionChangeCommitted);
             // 
-            // btnTabla
+            // btnEliminar
             // 
-            this.btnTabla.Location = new System.Drawing.Point(41, 87);
-            this.btnTabla.Name = "btnTabla";
-            this.btnTabla.Size = new System.Drawing.Size(131, 46);
-            this.btnTabla.TabIndex = 1;
-            this.btnTabla.Text = "TABLA";
-            this.btnTabla.UseVisualStyleBackColor = true;
-            this.btnTabla.Click += new System.EventHandler(this.btnTabla_Click);
+            this.btnEliminar.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(48, 96);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(151, 44);
+            this.btnEliminar.TabIndex = 5;
+            this.btnEliminar.Text = "ELIMINAR";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Visible = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnRegistros
+            // lblEliminar
             // 
-            this.btnRegistros.Location = new System.Drawing.Point(41, 30);
-            this.btnRegistros.Name = "btnRegistros";
-            this.btnRegistros.Size = new System.Drawing.Size(131, 51);
-            this.btnRegistros.TabIndex = 0;
-            this.btnRegistros.Text = "REGISTROS";
-            this.btnRegistros.UseVisualStyleBackColor = true;
-            this.btnRegistros.Click += new System.EventHandler(this.btnRegistros_Click);
+            this.lblEliminar.AutoSize = true;
+            this.lblEliminar.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEliminar.Location = new System.Drawing.Point(6, 35);
+            this.lblEliminar.Name = "lblEliminar";
+            this.lblEliminar.Size = new System.Drawing.Size(112, 26);
+            this.lblEliminar.TabIndex = 6;
+            this.lblEliminar.Text = "ELIMINAR";
             // 
-            // panelDerecho
+            // cboxObjeto
             // 
-            this.panelDerecho.Controls.Add(this.dataGridView1);
-            this.panelDerecho.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelDerecho.Location = new System.Drawing.Point(400, 0);
-            this.panelDerecho.Name = "panelDerecho";
-            this.panelDerecho.Size = new System.Drawing.Size(400, 302);
-            this.panelDerecho.TabIndex = 1;
+            this.cboxObjeto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxObjeto.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxObjeto.FormattingEnabled = true;
+            this.cboxObjeto.Items.AddRange(new object[] {
+            "Base de Datos",
+            "Registros",
+            "Tabla"});
+            this.cboxObjeto.Location = new System.Drawing.Point(121, 32);
+            this.cboxObjeto.Name = "cboxObjeto";
+            this.cboxObjeto.Size = new System.Drawing.Size(163, 34);
+            this.cboxObjeto.TabIndex = 7;
+            this.cboxObjeto.SelectedIndexChanged += new System.EventHandler(this.cboxObjeto_SelectedIndexChanged);
             // 
-            // dataGridView1
+            // lblLlamada
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(376, 267);
-            this.dataGridView1.TabIndex = 0;
+            this.lblLlamada.AutoSize = true;
+            this.lblLlamada.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLlamada.Location = new System.Drawing.Point(294, 35);
+            this.lblLlamada.Name = "lblLlamada";
+            this.lblLlamada.Size = new System.Drawing.Size(119, 26);
+            this.lblLlamada.TabIndex = 8;
+            this.lblLlamada.Text = "LLAMADA:";
+            this.lblLlamada.Visible = false;
             // 
-            // btnMostrar
+            // btnCancelar
             // 
-            this.btnMostrar.Location = new System.Drawing.Point(41, 30);
-            this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(131, 51);
-            this.btnMostrar.TabIndex = 3;
-            this.btnMostrar.Text = "MOSTRAR";
-            this.btnMostrar.UseVisualStyleBackColor = true;
-            this.btnMostrar.Visible = false;
-            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
+            this.btnCancelar.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(398, 96);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(151, 44);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // dgvEliminar
+            // 
+            this.dgvEliminar.AllowUserToAddRows = false;
+            this.dgvEliminar.AllowUserToDeleteRows = false;
+            this.dgvEliminar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEliminar.Location = new System.Drawing.Point(48, 96);
+            this.dgvEliminar.Name = "dgvEliminar";
+            this.dgvEliminar.ReadOnly = true;
+            this.dgvEliminar.Size = new System.Drawing.Size(501, 147);
+            this.dgvEliminar.TabIndex = 10;
+            this.dgvEliminar.Visible = false;
             // 
             // FrEliminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 302);
-            this.Controls.Add(this.panelDerecho);
-            this.Controls.Add(this.panelIzquierdo);
+            this.ClientSize = new System.Drawing.Size(584, 161);
+            this.Controls.Add(this.dgvEliminar);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.lblLlamada);
+            this.Controls.Add(this.cboxObjeto);
+            this.Controls.Add(this.lblEliminar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.cboxTablas);
             this.Name = "FrEliminar";
             this.Text = "FrEliminar";
-            this.Load += new System.EventHandler(this.FrEliminar_Load);
-            this.panelIzquierdo.ResumeLayout(false);
-            this.panelDerecho.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEliminar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelIzquierdo;
-        private System.Windows.Forms.Panel panelDerecho;
-        private System.Windows.Forms.Button btnTabla;
-        private System.Windows.Forms.Button btnRegistros;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox cboxTablas;
-        private System.Windows.Forms.Button btnMostrar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label lblEliminar;
+        private System.Windows.Forms.ComboBox cboxObjeto;
+        private System.Windows.Forms.Label lblLlamada;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridView dgvEliminar;
     }
 }

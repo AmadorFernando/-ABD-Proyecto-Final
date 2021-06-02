@@ -13,71 +13,231 @@ namespace _ABD_7__Proyecto_Final.Forms
 {
     public partial class FrEliminar : Form
     {
-        static DataTable LocalLista;
-        string Tabla;
+        static DataTable LocalListaTablas;
+        static DataTable LocalListaBD;
         static string LocalBDSeleccionada;
-        public FrEliminar(DataTable BDTablas, string BDSeleccionada)
+        string Tabla;
+        static string mensaje="";
+        public SqlConnection Conexiones = new SqlConnection("Data Source=DESKTOP-PRRK88P;Initial Catalog=" + LocalBDSeleccionada + ";Integrated Security= True");
+
+        public FrEliminar(DataTable BDTablas, string BDSeleccionada, DataTable Listabd)
         {
             InitializeComponent();
-            LocalLista = BDTablas;
+            LocalListaTablas = BDTablas;
+            LocalListaBD = Listabd;
             LocalBDSeleccionada = BDSeleccionada;
         }
 
-        private void btnRegistros_Click(object sender, EventArgs e)
+        void InsertarDatos(DataTable Listado)
         {
-            InsertarDatos();
-
-            btnMostrar.Visible = true;
-            btnRegistros.Visible = false;
-            btnTabla.Visible = false;
-        }
-
-        private void FrEliminar_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        void InsertarDatos()
-        {
-            for (int i = 0; i < LocalLista.Rows.Count; i++)
+            for (int i = 0; i < Listado.Rows.Count; i++)
             {
-                cboxTablas.Items.Add(LocalLista.Rows[i][0]);
+                cboxTablas.Items.Add(Listado.Rows[i][0]);
             }
         }
 
+        void InsertarDataGrid()
+        {
+            SqlConnection Conexiones7 = new SqlConnection("Data Source=DESKTOP-PRRK88P;Initial Catalog=" + LocalBDSeleccionada + ";Integrated Security= True");
+            //Conexion ConectarBD = new Conexion();
+            Conexiones.Open();
+            string Cadena = "SELECT * from " + Tabla;
+            //Creamos el comando de SQL
+            SqlCommand cmd = new SqlCommand(Cadena, Conexiones7);
+            //Generamos la tabla
+            SqlDataAdapter dr = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dr.Fill(dt);
+            dgvEliminar.DataSource = dt;
+            dgvEliminar.Refresh();
+            Conexiones.Close();
+        }
         private void cboxTablas_SelectionChangeCommitted(object sender, EventArgs e)
         {
             Tabla = cboxTablas.Text;
+            if (cboxObjeto.Text=="Registros")
+            {
+                //Limpiamos el datagridview
+                if (dgvEliminar.Rows.Count >= 1)
+                {
+                    dgvEliminar.DataSource = null;
+                    dgvEliminar.Rows.Clear();
+                }
+                dgvEliminar.Refresh();
+                //Aumentamos el taman~o del formulario
+                this.Height = 400;
+                this.Width = 600;
+                //Cambiamos la localizacion de los botones
+                btnEliminar.Location = new Point(48, 280);
+                btnCancelar.Location = new Point(398, 280);
+                //Hacemos visible el datagridview, label y textbox
+                dgvEliminar.Visible = true;
+                //cboxTablas.Items.Clear();
+                InsertarDataGrid();
+                //lblLlamada.Visible = true;
+                //cboxTablas.Visible = true;
+            }
         }
 
-        private void btnMostrar_Click(object sender, EventArgs e)
+        private void cboxObjeto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboxTablas.Text != "" && Tabla != "")
+            if (cboxObjeto.Text == "Base de Datos")
             {
-                SqlConnection Conexiones7 = new SqlConnection("Data Source=DESKTOP-PRRK88P;Initial Catalog=" + LocalBDSeleccionada + ";Integrated Security= True");
+                //Limpiamos el datagridview
+                if (dgvEliminar.Rows.Count >= 1)
+                {
+                    dgvEliminar.DataSource = null;
+                    dgvEliminar.Rows.Clear();
+                }
+                dgvEliminar.Refresh();
+                //Disminuimos el taman~o del formulario
+                this.Height = 200;
+                this.Width = 600;
+                //Cambiamos la localizacion de los botones
+                btnEliminar.Location = new Point(48, 96);
+                btnCancelar.Location = new Point(398, 96);
+                //Hacemos visible el label y textbox y invisible el datagridview
+                dgvEliminar.Visible = false;
+                cboxTablas.Items.Clear();
+                //Agregamos al combobox los items (Listado de Base de datos)
+                InsertarDatos(LocalListaBD);
+                lblLlamada.Visible = true;
+                cboxTablas.Visible = true;
+                btnEliminar.Visible = true;
+            }
+            else if (cboxObjeto.Text == "Tabla")
+            {
+                //Limpiamos el datagridview
+                if (dgvEliminar.Rows.Count >= 1)
+                {
+                    dgvEliminar.DataSource = null;
+                    dgvEliminar.Rows.Clear();
+                }
+                dgvEliminar.Refresh();
+                //Aumentamos el taman~o del formulario
+                this.Height = 200;
+                this.Width = 600;
+                //Cambiamos la localizacion de los botones
+                btnEliminar.Location = new Point(48, 96);
+                btnCancelar.Location = new Point(398, 96);
+                //Hacemos visible el datagridview, label y textbox
+                dgvEliminar.Visible = false;
+                cboxTablas.Items.Clear();
+                //Agregamos al combobox los items (Listado de Tablas)
+                InsertarDatos(LocalListaTablas);
+                lblLlamada.Visible = true;
+                cboxTablas.Visible = true;
+                btnEliminar.Visible = true;
+            }
+            else //REGISTROS
+            {
+                //Limpiamos el datagridview
+                if (dgvEliminar.Rows.Count>=1)
+                {
+                    dgvEliminar.DataSource = null;
+                    dgvEliminar.Rows.Clear();
+                }
+                dgvEliminar.Refresh();
+                //Aumentamos el taman~o del formulario
+                this.Height = 200;
+                this.Width = 600;
+                //Cambiamos la localizacion de los botones
+                btnEliminar.Location = new Point(48, 96);
+                btnCancelar.Location = new Point(398, 96);
+                //Hacemos visible el datagridview, label y textbox
+                dgvEliminar.Visible = false;
+                cboxTablas.Items.Clear();
+                //Agregamos al combobox los items (Listado de Tablas)
+                InsertarDatos(LocalListaTablas);
+                lblLlamada.Visible = true;
+                lblLlamada.Text = "DE LA TABLA:";
+                lblLlamada.Font = new Font(lblLlamada.Font.Name, 12.0f, lblLlamada.Font.Style, lblLlamada.Font.Unit);
+                cboxTablas.Visible = true;
+                btnEliminar.Visible = true;
+            }
+        }
 
-                Conexion ConectarBD = new Conexion();
-                ConectarBD.Conexiones.Open();
-                string Cadena = "SELECT * from " + Tabla;
-                //Creamos el comando de SQL
-                SqlCommand cmd = new SqlCommand(Cadena, Conexiones7);
-                //Generamos la tabla
-                SqlDataAdapter dr = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                dr.Fill(dt);
-                dataGridView1.DataSource = dt;
-                ConectarBD.Conexiones.Close();
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (mensaje=="")
+            {
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Selecciona una Tabla");
+                this.DialogResult = DialogResult.OK;
             }
         }
 
-        private void btnTabla_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-            InsertarDatos();
-            btnRegistros.Visible = false;
+            if (cboxTablas.Text != "")
+            {
+                switch (cboxObjeto.Text)
+                {
+                    case "Base de Datos":
+                        Eliminar(1);
+                        break;
+                    case "Registros":
+                        Eliminar(2);
+                        break;
+                    case "Tablas":
+                        Eliminar(3);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una opcion");
+            }
+        }
+        void Eliminar(int num)
+        {
+            SqlConnection Conexiones = new SqlConnection("Data Source=DESKTOP-PRRK88P;Initial Catalog=" + LocalBDSeleccionada + ";Integrated Security= True");
+            //Conexion ConectarBD = new Conexion();
+            Conexiones.Open();
+            string Cadena = "";
+            switch (num)
+            {
+                case 1:
+                    Cadena ="Drop database " + Tabla+";";
+                    mensaje = mensaje + "Se ha eliminado la Base de Datos " + Tabla+ ".\r\n";
+                    break;
+                case 2:
+                    Cadena = ";delete from " + Tabla+ " where "+dgvEliminar.Columns[0].Name+"="+ dgvEliminar.SelectedCells[0].Value.ToString();
+                    mensaje = mensaje + "Se ha eliminado el Registro de la tabla: " + Tabla+" registro: #"+ dgvEliminar.SelectedCells[0].Value.ToString()+ ".\r\n";
+                    break;
+                case 3:
+                    Cadena = "use " + LocalBDSeleccionada + "Drop table " + Tabla + ";";
+                    mensaje =mensaje+ "Se ha eliminado la Tabla " + Tabla+ ".\r\n";
+                    break;
+                default:
+                    break;
+            }
+
+            //Creamos el comando de SQL
+            SqlCommand cmd = new SqlCommand(Cadena, Conexiones);
+            //Generamos la tabla
+            cmd.ExecuteNonQuery();
+            Conexiones.Close();
+            if (num==2)
+            {
+                InsertarDataGrid();
+            }
+        }
+
+        public string Mensaje()
+        {
+            return mensaje;
+        }
+
+        private void Limpiar()
+        {
+            dgvEliminar.DataSource = null;
+            dgvEliminar.Rows.Clear();
+            dgvEliminar.Refresh();
         }
     }
 }
