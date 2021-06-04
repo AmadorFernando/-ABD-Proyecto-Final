@@ -19,15 +19,18 @@ namespace _ABD_7__Proyecto_Final
         static DataTable ListadoBD;
         static string BDUsada="master";
         static DataTable ListadoTablas;
+        //Conexiones SQL
         public SqlConnection Conexiones = new SqlConnection("Data Source=DESKTOP-PRRK88P;Initial Catalog="+BDUsada+";Integrated Security= True");
+        //public SqlConnection Conexiones = new SqlConnection("Data Source=PC-SHIDORI;Initial Catalog=" + LocalBDSeleccionada + ";Integrated Security= True");
+
+        //Esta variable guardara el ultimo click, para poder realizar el movimiento de la ventana.
+        Point lastclick;
 
         public Form1()
         {
-            //Thread hilo = new Thread(new ThreadStart(Iniciar));
-            //hilo.Start();
-            //Thread.Sleep(22000);
+            Thread.Sleep(5000);
             InitializeComponent();
-            //hilo.Abort();
+
         }
         public void Iniciar()
         {
@@ -41,12 +44,10 @@ namespace _ABD_7__Proyecto_Final
 
         public void TreeView()
         {
-            //Conexion ConectarBD = new Conexion();
-            //ConectarBD.Conexiones.Open();
-            Conexiones.Open();
             string Cadena = "SELECT name FROM master.dbo.sysdatabases WHERE name NOT IN ('master', 'tempdb', 'model', 'msdb')";
             //Creamos el comando de SQL
-            SqlCommand cmd = new SqlCommand(Cadena, Conexiones);
+            Conexiones.Open();
+            SqlCommand cmd = new SqlCommand(Cadena,Conexiones);
             //Generamos la tabla
             SqlDataAdapter dr = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -124,7 +125,7 @@ namespace _ABD_7__Proyecto_Final
                 BDUsada = FrUsar.LocalBDUsada;
                 MessageBox.Show("Se ha selecionado la Base de Datos: " + BDUsada, "Confirmacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //Cambiamos el nombre del formulario principal
-                this.Text = "ABD-7 Base de Datos:  "+BDUsada;
+                 lblTitulo.Text = "ABD Software - Base de Datos:  "+BDUsada;
                 //Se cambia el nombre al boton para dar mas detalle
                 btnUsar.Text = "CAMBIAR";
                 //Se agrega a la consola lo que se realizo.
@@ -167,5 +168,56 @@ namespace _ABD_7__Proyecto_Final
             treeView1.Nodes.Clear();
             TreeView();
         }
+
+        private void btnBuscador_Click(object sender, EventArgs e)
+        {
+            FrBuscador frbuscador = new FrBuscador(ObtenerTablasBD(BDUsada),BDUsada);
+            frbuscador.ShowDialog();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            FrModificar frModificar = new FrModificar(ObtenerTablasBD(BDUsada), BDUsada, ListadoBD);
+            frModificar.ShowDialog();
+        }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            FrInsertar frInsertar = new FrInsertar(ObtenerTablasBD(BDUsada), BDUsada, ListadoBD);
+            var respuesta = frInsertar.ShowDialog();
+            if (respuesta == DialogResult.OK && frInsertar.Mensaje() != "")
+            {
+                txtComandos.Text = txtComandos.Text + frInsertar.Mensaje() + "\r\n";
+            }
+        }
+
+        private void pboxMin_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void pboxClose_Click(object sender, EventArgs e)
+        {
+            DialogResult Dr = MessageBox.Show("¿Estas seguro que quieres cerrar la aplicacion?", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (Dr == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void panelTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastclick = e.Location;
+        }
+
+        private void panelTop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastclick.X;
+                this.Top += e.Y - lastclick.Y;
+            }
+        }
+
     }
 }

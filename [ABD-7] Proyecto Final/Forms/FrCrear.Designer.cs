@@ -39,14 +39,20 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.pboxMin = new System.Windows.Forms.PictureBox();
+            this.pboxClose = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCrear)).BeginInit();
+            this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxClose)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCrear
             // 
             this.lblCrear.AutoSize = true;
             this.lblCrear.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrear.Location = new System.Drawing.Point(6, 35);
+            this.lblCrear.Location = new System.Drawing.Point(6, 51);
             this.lblCrear.Name = "lblCrear";
             this.lblCrear.Size = new System.Drawing.Size(77, 26);
             this.lblCrear.TabIndex = 0;
@@ -57,7 +63,7 @@
             this.cboxObjeto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxObjeto.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxObjeto.FormattingEnabled = true;
-            this.cboxObjeto.Location = new System.Drawing.Point(89, 32);
+            this.cboxObjeto.Location = new System.Drawing.Point(89, 48);
             this.cboxObjeto.Name = "cboxObjeto";
             this.cboxObjeto.Size = new System.Drawing.Size(163, 34);
             this.cboxObjeto.TabIndex = 1;
@@ -67,7 +73,7 @@
             // 
             this.lblLlamada.AutoSize = true;
             this.lblLlamada.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLlamada.Location = new System.Drawing.Point(271, 35);
+            this.lblLlamada.Location = new System.Drawing.Point(271, 51);
             this.lblLlamada.Name = "lblLlamada";
             this.lblLlamada.Size = new System.Drawing.Size(119, 26);
             this.lblLlamada.TabIndex = 2;
@@ -77,7 +83,7 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(396, 32);
+            this.txtNombre.Location = new System.Drawing.Point(396, 48);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(171, 33);
             this.txtNombre.TabIndex = 3;
@@ -86,7 +92,8 @@
             // btnCrear
             // 
             this.btnCrear.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrear.Location = new System.Drawing.Point(48, 96);
+            this.btnCrear.ForeColor = System.Drawing.Color.Black;
+            this.btnCrear.Location = new System.Drawing.Point(47, 96);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(151, 44);
             this.btnCrear.TabIndex = 4;
@@ -97,7 +104,8 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(398, 96);
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.Location = new System.Drawing.Point(399, 96);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(151, 44);
             this.btnCancelar.TabIndex = 5;
@@ -144,11 +152,48 @@
             this.Column4.HeaderText = "Primary Key";
             this.Column4.Name = "Column4";
             // 
+            // panelTop
+            // 
+            this.panelTop.BackColor = System.Drawing.Color.Black;
+            this.panelTop.Controls.Add(this.pboxMin);
+            this.panelTop.Controls.Add(this.pboxClose);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(600, 34);
+            this.panelTop.TabIndex = 7;
+            this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
+            this.panelTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseMove);
+            // 
+            // pboxMin
+            // 
+            this.pboxMin.Image = global::_ABD_7__Proyecto_Final.Properties.Resources.Minimize_Window_2_48px;
+            this.pboxMin.Location = new System.Drawing.Point(522, 2);
+            this.pboxMin.Name = "pboxMin";
+            this.pboxMin.Size = new System.Drawing.Size(27, 29);
+            this.pboxMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxMin.TabIndex = 3;
+            this.pboxMin.TabStop = false;
+            this.pboxMin.Click += new System.EventHandler(this.pboxMin_Click);
+            // 
+            // pboxClose
+            // 
+            this.pboxClose.Image = global::_ABD_7__Proyecto_Final.Properties.Resources.Close_Window__2_48px;
+            this.pboxClose.Location = new System.Drawing.Point(559, 2);
+            this.pboxClose.Name = "pboxClose";
+            this.pboxClose.Size = new System.Drawing.Size(27, 29);
+            this.pboxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxClose.TabIndex = 2;
+            this.pboxClose.TabStop = false;
+            this.pboxClose.Click += new System.EventHandler(this.pboxClose_Click);
+            // 
             // FrCrear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 161);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.ClientSize = new System.Drawing.Size(600, 200);
+            this.Controls.Add(this.panelTop);
             this.Controls.Add(this.dgvCrear);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCrear);
@@ -156,10 +201,16 @@
             this.Controls.Add(this.lblLlamada);
             this.Controls.Add(this.cboxObjeto);
             this.Controls.Add(this.lblCrear);
+            this.ForeColor = System.Drawing.SystemColors.Control;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrCrear";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrCrear";
             this.Load += new System.EventHandler(this.FrCrear_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCrear)).EndInit();
+            this.panelTop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pboxMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +229,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column3;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column4;
+        private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.PictureBox pboxMin;
+        private System.Windows.Forms.PictureBox pboxClose;
     }
 }

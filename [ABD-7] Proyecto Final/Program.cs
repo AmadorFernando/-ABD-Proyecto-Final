@@ -16,7 +16,7 @@ namespace _ABD_7__Proyecto_Final
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FrPantallaCarga());
         }
     }
 }

@@ -14,6 +14,8 @@ namespace _ABD_7__Proyecto_Final.Forms
     {
         static DataTable LocalLista;
         public string LocalBDUsada="";
+        //Esta variable guardara el ultimo click, para poder realizar el movimiento de la ventana.
+        Point lastclick;
 
         public FrUsarBD(DataTable Listado)
         {
@@ -42,7 +44,7 @@ namespace _ABD_7__Proyecto_Final.Forms
             }
             else
             {
-                MessageBox.Show("Favor de seleccionar una Base de Datos");
+                MessageBox.Show("Favor de seleccionar una Base de Datos", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             
         }
@@ -50,6 +52,34 @@ namespace _ABD_7__Proyecto_Final.Forms
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pboxMin_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void pboxClose_Click(object sender, EventArgs e)
+        {
+            DialogResult Dr = MessageBox.Show("¿Estas seguro que quieres cerrar la pestaña?", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (Dr == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastclick.X;
+                this.Top += e.Y - lastclick.Y;
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastclick = e.Location;
         }
     }
 }

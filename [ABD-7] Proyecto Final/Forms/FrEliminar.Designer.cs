@@ -35,7 +35,13 @@
             this.lblLlamada = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvEliminar = new System.Windows.Forms.DataGridView();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.pboxMin = new System.Windows.Forms.PictureBox();
+            this.pboxClose = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEliminar)).BeginInit();
+            this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxClose)).BeginInit();
             this.SuspendLayout();
             // 
             // cboxTablas
@@ -43,7 +49,7 @@
             this.cboxTablas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxTablas.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxTablas.FormattingEnabled = true;
-            this.cboxTablas.Location = new System.Drawing.Point(419, 32);
+            this.cboxTablas.Location = new System.Drawing.Point(419, 50);
             this.cboxTablas.Name = "cboxTablas";
             this.cboxTablas.Size = new System.Drawing.Size(156, 30);
             this.cboxTablas.TabIndex = 2;
@@ -53,6 +59,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.Location = new System.Drawing.Point(48, 96);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(151, 44);
@@ -66,7 +73,8 @@
             // 
             this.lblEliminar.AutoSize = true;
             this.lblEliminar.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEliminar.Location = new System.Drawing.Point(6, 35);
+            this.lblEliminar.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblEliminar.Location = new System.Drawing.Point(6, 53);
             this.lblEliminar.Name = "lblEliminar";
             this.lblEliminar.Size = new System.Drawing.Size(112, 26);
             this.lblEliminar.TabIndex = 6;
@@ -81,7 +89,7 @@
             "Base de Datos",
             "Registros",
             "Tabla"});
-            this.cboxObjeto.Location = new System.Drawing.Point(121, 32);
+            this.cboxObjeto.Location = new System.Drawing.Point(121, 50);
             this.cboxObjeto.Name = "cboxObjeto";
             this.cboxObjeto.Size = new System.Drawing.Size(163, 34);
             this.cboxObjeto.TabIndex = 7;
@@ -91,7 +99,8 @@
             // 
             this.lblLlamada.AutoSize = true;
             this.lblLlamada.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLlamada.Location = new System.Drawing.Point(294, 35);
+            this.lblLlamada.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblLlamada.Location = new System.Drawing.Point(294, 53);
             this.lblLlamada.Name = "lblLlamada";
             this.lblLlamada.Size = new System.Drawing.Size(119, 26);
             this.lblLlamada.TabIndex = 8;
@@ -101,6 +110,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
             this.btnCancelar.Location = new System.Drawing.Point(398, 96);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(151, 44);
@@ -121,11 +131,48 @@
             this.dgvEliminar.TabIndex = 10;
             this.dgvEliminar.Visible = false;
             // 
+            // panelTop
+            // 
+            this.panelTop.BackColor = System.Drawing.Color.Black;
+            this.panelTop.Controls.Add(this.pboxMin);
+            this.panelTop.Controls.Add(this.pboxClose);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(600, 33);
+            this.panelTop.TabIndex = 11;
+            this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
+            this.panelTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseMove);
+            // 
+            // pboxMin
+            // 
+            this.pboxMin.Image = global::_ABD_7__Proyecto_Final.Properties.Resources.Minimize_Window_2_48px;
+            this.pboxMin.Location = new System.Drawing.Point(514, 2);
+            this.pboxMin.Name = "pboxMin";
+            this.pboxMin.Size = new System.Drawing.Size(27, 29);
+            this.pboxMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxMin.TabIndex = 3;
+            this.pboxMin.TabStop = false;
+            this.pboxMin.Click += new System.EventHandler(this.pboxMin_Click);
+            // 
+            // pboxClose
+            // 
+            this.pboxClose.Image = global::_ABD_7__Proyecto_Final.Properties.Resources.Close_Window__2_48px;
+            this.pboxClose.Location = new System.Drawing.Point(557, 1);
+            this.pboxClose.Name = "pboxClose";
+            this.pboxClose.Size = new System.Drawing.Size(27, 29);
+            this.pboxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxClose.TabIndex = 2;
+            this.pboxClose.TabStop = false;
+            this.pboxClose.Click += new System.EventHandler(this.pboxClose_Click);
+            // 
             // FrEliminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 161);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.ClientSize = new System.Drawing.Size(600, 200);
+            this.Controls.Add(this.panelTop);
             this.Controls.Add(this.dgvEliminar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblLlamada);
@@ -133,9 +180,15 @@
             this.Controls.Add(this.lblEliminar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.cboxTablas);
+            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrEliminar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrEliminar";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEliminar)).EndInit();
+            this.panelTop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pboxMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +202,8 @@
         private System.Windows.Forms.Label lblLlamada;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvEliminar;
+        private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.PictureBox pboxMin;
+        private System.Windows.Forms.PictureBox pboxClose;
     }
 }

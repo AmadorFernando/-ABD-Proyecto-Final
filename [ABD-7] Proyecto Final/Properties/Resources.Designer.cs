@@ -63,6 +63,16 @@ namespace _ABD_7__Proyecto_Final.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Close_Window__2_48px {
+            get {
+                object obj = ResourceManager.GetObject("Close_Window__2_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DBNormal {
             get {
                 object obj = ResourceManager.GetObject("DBNormal", resourceCulture);
@@ -83,9 +93,39 @@ namespace _ABD_7__Proyecto_Final.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Maximize_Window_2_48px {
+            get {
+                object obj = ResourceManager.GetObject("Maximize Window_2 48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Minimize_Window_2_48px {
+            get {
+                object obj = ResourceManager.GetObject("Minimize Window_2 48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Recargar {
             get {
                 object obj = ResourceManager.GetObject("Recargar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Restore_Window_2_48px {
+            get {
+                object obj = ResourceManager.GetObject("Restore Window 2_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

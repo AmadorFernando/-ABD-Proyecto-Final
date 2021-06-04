@@ -33,6 +33,7 @@
             this.lblCreado = new System.Windows.Forms.Label();
             this.lblPorcentaje = new System.Windows.Forms.Label();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // 
             // probarInicio
             // 
-            this.probarInicio.Location = new System.Drawing.Point(62, 175);
+            this.probarInicio.Location = new System.Drawing.Point(60, 199);
             this.probarInicio.Name = "probarInicio";
             this.probarInicio.Size = new System.Drawing.Size(236, 23);
             this.probarInicio.TabIndex = 1;
@@ -56,19 +57,20 @@
             // lblCreado
             // 
             this.lblCreado.AutoSize = true;
-            this.lblCreado.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreado.Location = new System.Drawing.Point(65, 228);
+            this.lblCreado.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreado.Location = new System.Drawing.Point(55, 246);
             this.lblCreado.Name = "lblCreado";
-            this.lblCreado.Size = new System.Drawing.Size(244, 24);
+            this.lblCreado.Size = new System.Drawing.Size(243, 26);
             this.lblCreado.TabIndex = 2;
-            this.lblCreado.Text = "Creado por ### y ###";
+            this.lblCreado.Text = "Creado por Yosip y Amador";
             // 
             // lblPorcentaje
             // 
             this.lblPorcentaje.AutoSize = true;
-            this.lblPorcentaje.Location = new System.Drawing.Point(302, 180);
+            this.lblPorcentaje.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPorcentaje.Location = new System.Drawing.Point(302, 199);
             this.lblPorcentaje.Name = "lblPorcentaje";
-            this.lblPorcentaje.Size = new System.Drawing.Size(21, 13);
+            this.lblPorcentaje.Size = new System.Drawing.Size(38, 26);
             this.lblPorcentaje.TabIndex = 3;
             this.lblPorcentaje.Text = "0%";
             // 
@@ -80,11 +82,22 @@
             this.bgWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorker_ProgressChanged);
             this.bgWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorker_RunWorkerCompleted);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(122, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 26);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "ABD Software";
+            // 
             // FrPantallaCarga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 281);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPorcentaje);
             this.Controls.Add(this.lblCreado);
             this.Controls.Add(this.probarInicio);
@@ -107,5 +120,6 @@
         private System.Windows.Forms.Label lblCreado;
         private System.Windows.Forms.Label lblPorcentaje;
         private System.ComponentModel.BackgroundWorker bgWorker;
+        private System.Windows.Forms.Label label1;
     }
 }

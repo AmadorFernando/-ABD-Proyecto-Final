@@ -21,16 +21,15 @@ namespace _ABD_7__Proyecto_Final
         private void FrPantallaCarga_Load(object sender, EventArgs e)
         {
             bgWorker.RunWorkerAsync();
-            
         }
 
         private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Dormir();
-                bgWorker.ReportProgress(i * 10);
+                bgWorker.ReportProgress(i * 20);
             }
         }
 
@@ -42,12 +41,15 @@ namespace _ABD_7__Proyecto_Final
 
         private void bgWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            
+            this.Hide();
+            var form1 = new Form1();
+            form1.Closed += (s, args) => this.Close();
+            form1.Show();
         }
 
         void Dormir()
         {
-            Thread.Sleep(1400);
+            Thread.Sleep(1000);
         }
     }
 }

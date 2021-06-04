@@ -18,8 +18,10 @@ namespace _ABD_7__Proyecto_Final.Forms
         static string LocalBDSeleccionada;
         string Tabla;
         static string mensaje="";
+        //Esta variable guardara el ultimo click, para poder realizar el movimiento de la ventana.
+        Point lastclick;
         public SqlConnection Conexiones = new SqlConnection("Data Source=DESKTOP-PRRK88P;Initial Catalog=" + LocalBDSeleccionada + ";Integrated Security= True");
-
+        //public SqlConnection Conexiones = new SqlConnection("Data Source=PC-SHIDORI;Initial Catalog=" + LocalBDSeleccionada + ";Integrated Security= True");
         public FrEliminar(DataTable BDTablas, string BDSeleccionada, DataTable Listabd)
         {
             InitializeComponent();
@@ -39,7 +41,8 @@ namespace _ABD_7__Proyecto_Final.Forms
         void InsertarDataGrid()
         {
             SqlConnection Conexiones7 = new SqlConnection("Data Source=DESKTOP-PRRK88P;Initial Catalog=" + LocalBDSeleccionada + ";Integrated Security= True");
-            //Conexion ConectarBD = new Conexion();
+            //SqlConnection Conexiones7 = new SqlConnection("Data Source=PC-SHIDORI;Initial Catalog=" + LocalBDSeleccionada + ";Integrated Security= True");
+            
             Conexiones.Open();
             string Cadena = "SELECT * from " + Tabla;
             //Creamos el comando de SQL
@@ -190,12 +193,13 @@ namespace _ABD_7__Proyecto_Final.Forms
             }
             else
             {
-                MessageBox.Show("Selecciona una opcion");
+                MessageBox.Show("Selecciona una opcion", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
         void Eliminar(int num)
         {
             SqlConnection Conexiones = new SqlConnection("Data Source=DESKTOP-PRRK88P;Initial Catalog=" + LocalBDSeleccionada + ";Integrated Security= True");
+            //SqlConnection Conexiones = new SqlConnection("Data Source=PC-SHIDORI;Initial Catalog=" + LocalBDSeleccionada + ";Integrated Security= True");
             //Conexion ConectarBD = new Conexion();
             Conexiones.Open();
             string Cadena = "";
@@ -238,6 +242,34 @@ namespace _ABD_7__Proyecto_Final.Forms
             dgvEliminar.DataSource = null;
             dgvEliminar.Rows.Clear();
             dgvEliminar.Refresh();
+        }
+
+        private void pboxMin_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void pboxClose_Click(object sender, EventArgs e)
+        {
+            DialogResult Dr = MessageBox.Show("¿Estas seguro que quieres cerrar la pestaña?", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (Dr == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void panelTop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastclick.X;
+                this.Top += e.Y - lastclick.Y;
+            }
+        }
+
+        private void panelTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastclick = e.Location;
         }
     }
 }
