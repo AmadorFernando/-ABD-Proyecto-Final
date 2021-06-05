@@ -33,7 +33,11 @@
             this.lblCreado = new System.Windows.Forms.Label();
             this.lblPorcentaje = new System.Windows.Forms.Label();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSubTitulo = new System.Windows.Forms.Label();
+            this.lblTop = new System.Windows.Forms.Label();
+            this.lblBottom = new System.Windows.Forms.Label();
+            this.lblIzq = new System.Windows.Forms.Label();
+            this.lblDerecho = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +62,7 @@
             // 
             this.lblCreado.AutoSize = true;
             this.lblCreado.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreado.Location = new System.Drawing.Point(55, 246);
+            this.lblCreado.Location = new System.Drawing.Point(55, 227);
             this.lblCreado.Name = "lblCreado";
             this.lblCreado.Size = new System.Drawing.Size(243, 26);
             this.lblCreado.TabIndex = 2;
@@ -82,22 +86,58 @@
             this.bgWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorker_ProgressChanged);
             this.bgWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorker_RunWorkerCompleted);
             // 
-            // label1
+            // lblSubTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(122, 147);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 26);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ABD Software";
+            this.lblSubTitulo.AutoSize = true;
+            this.lblSubTitulo.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTitulo.Location = new System.Drawing.Point(122, 147);
+            this.lblSubTitulo.Name = "lblSubTitulo";
+            this.lblSubTitulo.Size = new System.Drawing.Size(131, 26);
+            this.lblSubTitulo.TabIndex = 4;
+            this.lblSubTitulo.Text = "ABD Software";
+            // 
+            // lblTop
+            // 
+            this.lblTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.lblTop.Location = new System.Drawing.Point(0, -1);
+            this.lblTop.Name = "lblTop";
+            this.lblTop.Size = new System.Drawing.Size(377, 23);
+            this.lblTop.TabIndex = 5;
+            // 
+            // lblBottom
+            // 
+            this.lblBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.lblBottom.Location = new System.Drawing.Point(0, 258);
+            this.lblBottom.Name = "lblBottom";
+            this.lblBottom.Size = new System.Drawing.Size(377, 23);
+            this.lblBottom.TabIndex = 6;
+            // 
+            // lblIzq
+            // 
+            this.lblIzq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.lblIzq.Location = new System.Drawing.Point(0, 2);
+            this.lblIzq.Name = "lblIzq";
+            this.lblIzq.Size = new System.Drawing.Size(23, 279);
+            this.lblIzq.TabIndex = 7;
+            // 
+            // lblDerecho
+            // 
+            this.lblDerecho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.lblDerecho.Location = new System.Drawing.Point(354, 1);
+            this.lblDerecho.Name = "lblDerecho";
+            this.lblDerecho.Size = new System.Drawing.Size(23, 279);
+            this.lblDerecho.TabIndex = 8;
             // 
             // FrPantallaCarga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 281);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblDerecho);
+            this.Controls.Add(this.lblIzq);
+            this.Controls.Add(this.lblBottom);
+            this.Controls.Add(this.lblTop);
+            this.Controls.Add(this.lblSubTitulo);
             this.Controls.Add(this.lblPorcentaje);
             this.Controls.Add(this.lblCreado);
             this.Controls.Add(this.probarInicio);
@@ -120,6 +160,10 @@
         private System.Windows.Forms.Label lblCreado;
         private System.Windows.Forms.Label lblPorcentaje;
         private System.ComponentModel.BackgroundWorker bgWorker;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSubTitulo;
+        private System.Windows.Forms.Label lblTop;
+        private System.Windows.Forms.Label lblBottom;
+        private System.Windows.Forms.Label lblIzq;
+        private System.Windows.Forms.Label lblDerecho;
     }
 }

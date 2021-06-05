@@ -81,10 +81,19 @@ namespace _ABD_7__Proyecto_Final
         {
             try
             {
+                int lineaactual=dgvEliminar.CurrentCell.RowIndex;
                 Tabla = cboxTablas.Text;
                 cadenaaux = txtCadena.Text;
+                //Codigo para insertar todos los valores
+                for (int i = 0; i < dgvEliminar.ColumnCount; i++)
+                {
+                    cadenaaux = cadenaaux +" '"+ dgvEliminar.Rows[lineaactual].Cells[i].Value+"',";
+                }
+                cadenaaux = cadenaaux.Remove((cadenaaux.Length - 1), 1);
+
                 Conexiones.Open();
                 string cadenaa = "use " + LocalBDSeleccionada + " insert into " + Tabla + " values (" + cadenaaux + ")";
+
                 mensaje = mensaje + "Se a ingresado un registro a la tabla " + Tabla + ".\r\n";
                 SqlCommand cmd = new SqlCommand(cadenaa, Conexiones);
                 cmd.ExecuteNonQuery();
@@ -95,6 +104,7 @@ namespace _ABD_7__Proyecto_Final
             catch (Exception)
             {
                 MessageBox.Show("Algo Salio Mal", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                Conexiones.Close();
             }
         }
         public string Mensaje()

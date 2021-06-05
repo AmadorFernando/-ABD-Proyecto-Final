@@ -54,6 +54,7 @@
             this.label2.Size = new System.Drawing.Size(205, 26);
             this.label2.TabIndex = 29;
             this.label2.Text = "DATOS A INSERTAR:";
+            this.label2.Visible = false;
             // 
             // txtCadena
             // 
@@ -62,6 +63,7 @@
             this.txtCadena.Name = "txtCadena";
             this.txtCadena.Size = new System.Drawing.Size(207, 31);
             this.txtCadena.TabIndex = 28;
+            this.txtCadena.Visible = false;
             // 
             // dgvEliminar
             // 
@@ -166,7 +168,7 @@
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboxTablas);
-            this.ForeColor = System.Drawing.SystemColors.Control;
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrInsertar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

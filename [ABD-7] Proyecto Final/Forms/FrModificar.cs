@@ -88,7 +88,7 @@ namespace _ABD_7__Proyecto_Final.Forms
                     case "CHANGE":
                         //No
                         cadenaaux = txtVariable.Text + " " + txtTipoDato.Text + "";
-                        cadena = " Alter Table " + Tabla + " alter column " + txtVariable.Text + " " + txtTipoDato;
+                        cadena = " Alter Table " + Tabla + " alter column " + txtVariable.Text + " " + txtTipoDato.Text;
                         mensaje = mensaje + "Se a modificado una columna a la tabla " + Tabla;
                         break;
 
@@ -265,6 +265,10 @@ namespace _ABD_7__Proyecto_Final.Forms
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             lastclick = e.Location;
+        }
+        public string Mensaje()
+        {
+            return mensaje;
         }
     }
 }

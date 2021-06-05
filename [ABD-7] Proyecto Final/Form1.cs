@@ -130,6 +130,12 @@ namespace _ABD_7__Proyecto_Final
                 btnUsar.Text = "CAMBIAR";
                 //Se agrega a la consola lo que se realizo.
                 txtComandos.Text = txtComandos.Text + "Se ha usado la Base de Datos "+ BDUsada +".\r\n";
+
+                //Hacemos visibles las demas opciones
+                btnBuscador.Visible = true;
+                btnModificar.Visible = true;
+                btnInsertar.Visible = true;
+                btnEliminar.Visible = true;
             }
         }
 
@@ -178,7 +184,12 @@ namespace _ABD_7__Proyecto_Final
         private void btnModificar_Click(object sender, EventArgs e)
         {
             FrModificar frModificar = new FrModificar(ObtenerTablasBD(BDUsada), BDUsada, ListadoBD);
-            frModificar.ShowDialog();
+            var respuesta = frModificar.ShowDialog();
+            if (respuesta == DialogResult.OK && frModificar.Mensaje() != "")
+            {
+                txtComandos.Text = txtComandos.Text + frModificar.Mensaje() + "\r\n";
+            }
+            
         }
 
         private void btnInsertar_Click(object sender, EventArgs e)

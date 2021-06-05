@@ -121,6 +121,7 @@
             this.btnBuscador.TabIndex = 6;
             this.btnBuscador.Text = "BUSCADOR";
             this.btnBuscador.UseVisualStyleBackColor = true;
+            this.btnBuscador.Visible = false;
             this.btnBuscador.Click += new System.EventHandler(this.btnBuscador_Click);
             // 
             // btnCrear
@@ -143,6 +144,7 @@
             this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Visible = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnInsertar
@@ -154,6 +156,7 @@
             this.btnInsertar.TabIndex = 3;
             this.btnInsertar.Text = "INSERTAR";
             this.btnInsertar.UseVisualStyleBackColor = true;
+            this.btnInsertar.Visible = false;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
             // btnEliminar
@@ -165,6 +168,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Visible = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnUsar
