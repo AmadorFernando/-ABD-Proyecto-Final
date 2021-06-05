@@ -208,14 +208,17 @@ namespace _ABD_7__Proyecto_Final.Forms
                 case 1:
                     Cadena ="Drop database " + Tabla+";";
                     mensaje = mensaje + "Se ha eliminado la Base de Datos " + Tabla+ ".\r\n";
+                    MessageBox.Show("La base de datos: "+ Tabla+" ha sido eliminada","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                     break;
                 case 2:
                     Cadena = ";delete from " + Tabla+ " where "+dgvEliminar.Columns[0].Name+"="+ dgvEliminar.SelectedCells[0].Value.ToString();
                     mensaje = mensaje + "Se ha eliminado el Registro de la tabla: " + Tabla+" registro: #"+ dgvEliminar.SelectedCells[0].Value.ToString()+ ".\r\n";
+                    MessageBox.Show("El registro ha sido eliminado.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     break;
                 case 3:
                     Cadena = "use " + LocalBDSeleccionada + "Drop table " + Tabla + ";";
                     mensaje =mensaje+ "Se ha eliminado la Tabla " + Tabla+ ".\r\n";
+                    MessageBox.Show("La tabla: " + Tabla + " ha sido eliminada", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     break;
                 default:
                     break;
@@ -225,6 +228,7 @@ namespace _ABD_7__Proyecto_Final.Forms
             SqlCommand cmd = new SqlCommand(Cadena, Conexiones);
             //Generamos la tabla
             cmd.ExecuteNonQuery();
+            
             Conexiones.Close();
             if (num==2)
             {
@@ -254,8 +258,16 @@ namespace _ABD_7__Proyecto_Final.Forms
             DialogResult Dr = MessageBox.Show("¿Estas seguro que quieres cerrar la pestaña?", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (Dr == DialogResult.Yes)
             {
-                this.Close();
+                if (mensaje == "")
+                {
+                    this.Close();
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
             }
+
         }
 
         private void panelTop_MouseMove(object sender, MouseEventArgs e)

@@ -134,7 +134,14 @@ namespace _ABD_7__Proyecto_Final
             DialogResult Dr = MessageBox.Show("¿Estas seguro que quieres cerrar la pestaña?", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (Dr == DialogResult.Yes)
             {
-                this.Close();
+                if (mensaje == "")
+                {
+                    this.Close();
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
             }
         }
 
